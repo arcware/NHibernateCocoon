@@ -27,8 +27,8 @@ namespace NHibernateCocoon
 		{
 			NHibernateSessionManager.Instance.GetSession();
 
-			// If transaction scope is batch, start transaction at the beginning of the request.
-			if (NHibernateSessionManager.Instance.Config.TransactionScope == "batch")
+			// If transaction scope is request, start transaction at the beginning of the request.
+			if (NHibernateSessionManager.Instance.Config.TransactionScope == "request")
 			{
 				NHibernateSessionManager.Instance.BeginTransaction();
 			}
@@ -39,8 +39,8 @@ namespace NHibernateCocoon
 		/// </summary>
 		private void CloseSession(object sender, EventArgs e)
 		{
-			// If transaction scope is batch, commit the transaction at the end of the request.
-			if (NHibernateSessionManager.Instance.Config.TransactionScope == "batch")
+			// If transaction scope is request, commit the transaction at the end of the request.
+			if (NHibernateSessionManager.Instance.Config.TransactionScope == "request")
 			{
 				NHibernateSessionManager.Instance.CommitTransaction();
 			}

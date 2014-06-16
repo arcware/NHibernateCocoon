@@ -57,8 +57,8 @@ namespace NHibernateCocoon
 
 		private string GetTransactionScope(XmlNode section)
 		{
-			// The default transaction scope is batch
-			var transactionScope = "batch";
+			// The default transaction scope is request
+			var transactionScope = "request";
 
 			var node = section.SelectSingleNode("transactionScope");
 			if (node != null)
@@ -74,9 +74,9 @@ namespace NHibernateCocoon
 					throw new ConfigurationErrorsException("The transactionScope node does not have a value attribute.");
 				}
 
-				if (!String.IsNullOrEmpty(value.Value) && value.Value.ToLower() == "statement")
+				if (!String.IsNullOrEmpty(value.Value) && value.Value.ToLower() == "method")
 				{
-					transactionScope = "statement";
+					transactionScope = "method";
 				}
 			}
 

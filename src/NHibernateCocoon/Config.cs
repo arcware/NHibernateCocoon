@@ -11,7 +11,7 @@
 		public string FluentMappingAssemblyName { get; set; }
 
 		/// <summary>
-		/// The transaction scope for NHibernate, either "batch" or "statement".
+		/// The transaction scope for NHibernate, either "request" or "method".
 		/// </summary>
 		public string TransactionScope { get; set; }
 	}

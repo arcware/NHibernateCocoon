@@ -27,8 +27,8 @@ namespace NHibernateCocoon
 		{
 			NHibernateStatelessSessionManager.Instance.GetStatelessSession();
 
-			// If transaction scope is batch, start transaction at the beginning of the request.
-			if (NHibernateStatelessSessionManager.Instance.Config.TransactionScope == "batch")
+			// If transaction scope is request, start transaction at the beginning of the request.
+			if (NHibernateStatelessSessionManager.Instance.Config.TransactionScope == "request")
 			{
 				NHibernateStatelessSessionManager.Instance.BeginTransaction();
 			}
@@ -39,8 +39,8 @@ namespace NHibernateCocoon
 		/// </summary>
 		private void CloseStatelessSession(object sender, EventArgs e)
 		{
-			// If transaction scope is batch, commit the transaction at the end of the request.
-			if (NHibernateStatelessSessionManager.Instance.Config.TransactionScope == "batch")
+			// If transaction scope is request, commit the transaction at the end of the request.
+			if (NHibernateStatelessSessionManager.Instance.Config.TransactionScope == "request")
 			{
 				NHibernateStatelessSessionManager.Instance.CommitTransaction();
 			}
