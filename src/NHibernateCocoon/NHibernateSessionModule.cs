@@ -5,7 +5,7 @@ namespace NHibernateCocoon
 {
 	/// <summary>
 	/// HTTP module that opens and closes an NHibernate session during the request lifecycle.
-	/// If transaction scope is set to batch, then a transaction will start when the session
+	/// If transaction scope is set to request, then a transaction will start when the session
 	/// is opened and will commit when the session closes.
 	/// </summary>
 	public class NHibernateSessionModule : IHttpModule
