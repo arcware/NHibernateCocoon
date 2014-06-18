@@ -47,7 +47,7 @@ namespace NHibernateCocoon.Tests
 		}
 
 		/// <summary>
-		/// // Get artist with name Foo Fighters
+		/// Get artist with name Foo Fighters
 		/// </summary>
 		[Test]
 		public void get_by_property()
@@ -59,7 +59,7 @@ namespace NHibernateCocoon.Tests
 		}
 
 		/// <summary>
-		/// // Get email property for customer with ID 28
+		/// Get email property for customer with ID 28
 		/// </summary>
 		[Test]
 		public void get_property()
