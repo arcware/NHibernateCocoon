@@ -323,6 +323,31 @@ namespace NHibernateCocoon.Tests
 		}
 
 		/// <summary>
+		/// Deletes all playlists that contains My Playlist
+		/// </summary>
+		[Test]
+		public void delete_with_criteria()
+		{
+			// Insert temp data
+			var tempPlaylist1 = new Playlist { Name = "My Playlist1" };
+			var tempPlaylist2 = new Playlist { Name = "My Playlist2" };
+			var tempPlaylist3 = new Playlist { Name = "My Playlist3" };
+
+			var criteria = _playlistRepo.Session.CreateCriteria<Playlist>();
+			criteria.Add(Restrictions.Like("Name", "My Playlist"));
+
+			_playlistRepo.Delete(criteria);
+
+			var totalItems = 0;
+			var list = _playlistRepo.FindAll(out totalItems);
+
+			foreach (var item in list)
+			{
+				Assert.IsFalse(item.Name.Contains("My Playlist"));
+			}
+		}
+
+		/// <summary>
 		/// Counts all tracks in the playlist with ID 8
 		/// </summary>
 		[Test]
