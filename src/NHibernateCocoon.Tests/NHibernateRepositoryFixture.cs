@@ -329,12 +329,12 @@ namespace NHibernateCocoon.Tests
 		public void delete_with_criteria()
 		{
 			// Insert temp data
-			var tempPlaylist1 = new Playlist { Name = "My Playlist1" };
-			var tempPlaylist2 = new Playlist { Name = "My Playlist2" };
-			var tempPlaylist3 = new Playlist { Name = "My Playlist3" };
+			_playlistRepo.Save(new Playlist { Name = "My Playlist1" });
+			_playlistRepo.Save(new Playlist { Name = "My Playlist2" });
+			_playlistRepo.Save(new Playlist { Name = "My Playlist3" });
 
 			var criteria = _playlistRepo.Session.CreateCriteria<Playlist>();
-			criteria.Add(Restrictions.Like("Name", "My Playlist"));
+			criteria.Add(Restrictions.Like("Name", "%My Playlist%"));
 
 			_playlistRepo.Delete(criteria);
 
