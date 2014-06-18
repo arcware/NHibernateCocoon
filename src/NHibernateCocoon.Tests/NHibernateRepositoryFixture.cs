@@ -155,7 +155,7 @@ namespace NHibernateCocoon.Tests
 		}
 
 		/// <summary>
-		/// Finds the first page line items (page size of 5) that belong to invoice with ID 12, sorted by track ID in ascending order
+		/// Finds the first page of line items (page size of 5) that belong to invoice with ID 12, sorted by track ID in ascending order
 		/// </summary>
 		[Test]
 		public void find_with_sort_and_paging()
